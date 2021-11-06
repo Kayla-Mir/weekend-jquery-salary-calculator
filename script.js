@@ -4,7 +4,9 @@ let employees = [];
 
 function readyNow() {
     $('#add-employee-btn').on('click', handleAddEmployeeClick);
+    $('#employee-table-body').on('click', '#remove-btn', handleRemoveButtonClick)
     renderEmployees(employees);
+    renderTotalMonthlyOutput(employees);
 }
 
 function handleAddEmployeeClick() {
@@ -17,7 +19,7 @@ function handleAddEmployeeClick() {
     let newEmployee = {
         firstName: firstName,
         lastName: lastName,
-        idNum: idNum,
+        idNum: Number(idNum),
         titleName: titleName,
         annualSalary: Number(annualSalary)
     };
@@ -28,7 +30,7 @@ function handleAddEmployeeClick() {
     $('#last-name-input').val('Mir');
     $('#id-input').val('1');
     $('#title-input').val('Programmer');
-    $('#annual-salary-input').val(25000);
+    $('#annual-salary-input').val('25000');
 
     renderEmployees(employees);
     renderTotalMonthlyOutput(employees);
@@ -42,10 +44,12 @@ function renderEmployees(peopleToRender) {
             <tr>
                 <td>${employee.firstName}</td>
                 <td>${employee.lastName}</td>
-                <td>${employee.idNum}</td>
+                <td data-id='${employee.idNum}'>${employee.idNum}</td>
                 <td>${employee.titleName}</td>
                 <td>$${employee.annualSalary.toLocaleString('en-US')}</td>
-                <td><button id="remove-btn">Remove</button></td>
+                <td>
+                    <button id="remove-btn">Remove</button>
+                </td>
             </tr>
         `;
         $('#employee-table-body').append(newTableRow);
@@ -53,18 +57,30 @@ function renderEmployees(peopleToRender) {
     
 }
 
-function renderTotalMonthlyOutput(itemsToSum) {
-    let totalSum = calculateTotalMonthlyOutput(itemsToSum);
+function handleRemoveButtonClick() {
+    const employeeId = $(this).parent().prev().prev().prev().data().id
+    $(this).parent().parent().remove();
 
-    $('#total-monthly-output').text(totalSum.toLocaleString('en-US', 
-        {maximumFractionDigits: 2}));
+    employees = employees.filter(employee => employee.idNum !== employeeId);
+   
+    renderTotalMonthlyOutput(employees);
 }
 
-function calculateTotalMonthlyOutput(itemsToSum) {
+function renderTotalMonthlyOutput(employeesArray) {
+
+    let totalSum = calculateTotalMonthlyOutput(employeesArray);
+  
+    $('#total-monthly-output').empty();
+    $('#total-monthly-output').append(totalSum.toLocaleString('en-US', 
+        {maximumFractionDigits: 2}));
+
+}
+
+function calculateTotalMonthlyOutput(employeesArray) {
     let sum = 0;
 
-    for (let annualSalary of itemsToSum) {
-        sum += annualSalary.annualSalary / 12;
+    for (let employee of employeesArray) {
+        sum += employee.annualSalary / 12;
     }
     return sum;
 }
