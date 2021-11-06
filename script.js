@@ -26,11 +26,11 @@ function handleAddEmployeeClick() {
 
     employees.push(newEmployee);
 // IMPORTANT CLEAR FIELDS LATER!!!! ----------------------------->
-    $('#first-name-input').val('Kayla');
-    $('#last-name-input').val('Mir');
-    $('#id-input').val('1');
-    $('#title-input').val('Programmer');
-    $('#annual-salary-input').val('25000');
+    $('#first-name-input').val('');
+    $('#last-name-input').val('');
+    $('#id-input').val('');
+    $('#title-input').val('');
+    $('#annual-salary-input').val('');
 
     renderEmployees(employees);
     renderTotalMonthlyOutput(employees);
