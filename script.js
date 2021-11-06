@@ -71,8 +71,15 @@ function renderTotalMonthlyOutput(employeesArray) {
     let totalSum = calculateTotalMonthlyOutput(employeesArray);
   
     $('#total-monthly-output').empty();
-    $('#total-monthly-output').append(totalSum.toLocaleString('en-US', 
-        {maximumFractionDigits: 2}));
+    if (totalSum < 20000) {
+        $('#total-monthly-output').append(totalSum.toLocaleString('en-US', 
+            {maximumFractionDigits: 2}));
+        $('#total-monthly-area').removeClass("redWarning");
+    } else if (totalSum > 20000) {
+        $('#total-monthly-output').append(totalSum.toLocaleString('en-US', 
+            {maximumFractionDigits: 2}));
+        $('#total-monthly-area').addClass("redWarning");
+    }
 
 }
 
