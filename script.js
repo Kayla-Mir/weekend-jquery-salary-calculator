@@ -15,21 +15,27 @@ function handleAddEmployeeClick() {
     let idNum = $('#id-input').val();
     let titleName = $('#title-input').val();
     let annualSalary = $('#annual-salary-input').val();
-    let newEmployee = {
-        firstName: firstName,
-        lastName: lastName,
-        idNum: Number(idNum),
-        titleName: titleName,
-        annualSalary: Number(annualSalary)
-    };
-    employees.push(newEmployee);
-    $('#first-name-input').val('');
-    $('#last-name-input').val('');
-    $('#id-input').val('');
-    $('#title-input').val('');
-    $('#annual-salary-input').val('');
-    renderEmployees(employees);
-    renderTotalMonthlyOutput(employees);
+    
+    if (firstName === '' || lastName === '' || idNum === '' 
+        || titleName === '' || annualSalary === '') {
+        alert('Please fill all fields!')
+    } else {
+        let newEmployee = {
+            firstName: firstName,
+            lastName: lastName,
+            idNum: Number(idNum),
+            titleName: titleName,
+            annualSalary: Number(annualSalary)
+        };
+        employees.push(newEmployee);
+        $('#first-name-input').val('');
+        $('#last-name-input').val('');
+        $('#id-input').val('');
+        $('#title-input').val('');
+        $('#annual-salary-input').val('');
+        renderEmployees(employees);
+        renderTotalMonthlyOutput(employees);
+    }
 }
 
 // empty the table and loop through the employees array, for every employee it will append them 
