@@ -1,3 +1,59 @@
 .redWarning {
     background-color: red;
 }
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    margin-left: 20vw;
+}
+
+#input-fields {
+    margin-left: 1vw;
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    width: 12vw;
+    padding: 12px 12px;
+    box-sizing: border-box;
+}
+
+#add-employee-btn {
+    background-color: rgb(206, 206, 206);
+    border-radius: 4px;
+    width: 20vw;
+    margin: 1vw 40vw;
+    padding: 0.3vw;
+}
+
+table {
+    margin: 0vw 20vw;
+    min-width: 60vw;
+    border-collapse: collapse;
+}
+
+th {
+    background: rgb(206, 206, 206);
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background: #eee;
+}
+
+table tbody tr:first-child td:nth-child(6) {
+    min-width: 3vw;
+ }
+
+ #total-monthly-area {
+     float: right;
+     margin-right: 18.5vw;
+ }

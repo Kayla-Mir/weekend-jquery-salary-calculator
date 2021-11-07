@@ -12,12 +12,16 @@
     <body>
         <h1>Salary Calculator</h1>
         <h3>Add Employee</h3>
-        <input id="first-name-input" type="text" placeholder="First Name"/>
-        <input id="last-name-input" type="text" placeholder="Last Name"/>
-        <input id="id-input" type="text" placeholder="ID"/>
-        <input id="title-input" type="text" placeholder="Title"/>
-        <input id="annual-salary-input" type="text" placeholder="Annual Salary"/>
-        <button id="add-employee-btn">Submit</button>
+        <div id="input-fields">
+            <input id="first-name-input" type="text" placeholder="First Name"/>
+            <input id="last-name-input" type="text" placeholder="Last Name"/>
+            <input id="id-input" type="text" placeholder="ID"/>
+            <input id="title-input" type="text" placeholder="Title"/>
+            <input id="annual-salary-input" type="text" placeholder="Annual Salary"/>
+        </div> 
+        <div>
+            <button id="add-employee-btn">Submit</button>
+        </div>
 
         <h3>Employees</h3>
         
@@ -29,13 +33,19 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Annual Salary</th>
-                    <th></th>
+                    <th style="min-width: 3vw;"></th>
                 </tr>
             </thead>
             <tbody id="employee-table-body">
-              
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr> 
             </tbody>
-            <tfoot></tfoot>
         </table>
         <h4 id="total-monthly-area">Total Monthly: $<span id="total-monthly-output"></span></h4>
     </body>

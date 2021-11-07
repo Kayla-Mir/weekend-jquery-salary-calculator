@@ -5,7 +5,7 @@ let employees = [];
 function readyNow() {
     $('#add-employee-btn').on('click', handleAddEmployeeClick);
     $('#employee-table-body').on('click', '#remove-btn', handleRemoveButtonClick)
-    renderEmployees(employees);
+    //renderEmployees(employees);
     renderTotalMonthlyOutput(employees);
 }
 
@@ -25,7 +25,7 @@ function handleAddEmployeeClick() {
     };
 
     employees.push(newEmployee);
-// IMPORTANT CLEAR FIELDS LATER!!!! ----------------------------->
+
     $('#first-name-input').val('');
     $('#last-name-input').val('');
     $('#id-input').val('');
