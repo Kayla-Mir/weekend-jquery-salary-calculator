@@ -63,6 +63,10 @@ table tbody tr:first-child td:nth-child(6) {
     min-width: 3vw;
  }
 
+ tr:hover td, tr:hover {
+    background: rgb(255, 255, 192);
+}
+
  #total-monthly-area {
      float: right;
      margin-right: 20vw;
